@@ -18,30 +18,39 @@
       <button pButton type="submit" label="Pesquisar"></button>
     </div>
   </div>
-<div class="">
+  <div class="">
+    <p-table [value]="lancamentos">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Pessoa</th>
+          <th>Descrição</th>
+          <th class="col-data">Vencimento</th>
+          <th class="col-data">Pagamento</th>
+          <th class="col-valor">Valor</th>
+          <th class="col-acoes">Ações</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-lancamento>
+        <tr>
+          <td>{{ lancamento.pessoa }}</td>
+          <td>{{ lancamento.descricao }}</td>
+          <td>{{ lancamento.dataVencimento }}</td>
+          <td>{{ lancamento.dataPagamento }}</td>
+          <td>
+              <span [ngStyle]="{ color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue' }">{{ lancamento.valor }}</span>
+          </td>
+          <td>
+            <a pButton icon="pi pi-pencil"></a>
+            <button pButton icon="pi pi-trash"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
 
-  <p-table [value]="lancamentos">
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Pessoa</th>
-        <th>Descrição</th>
-        <th class="col-data">Vencimento</th>
-        <th class="col-data">Pagamento</th>
-        <th class="col-valor">Valor</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-lancamento>
-      <tr>
-        <td>{{lancamento.pessoa}}</td>
-        <td>{{lancamento.descricao}}</td>
-        <td>{{lancamento.dataVencimento}}</td>
-        <td>{{lancamento.dataPagamento}}</td>
-        <td>{{lancamento.valor}}</td>
-      </tr>
-    </ng-template>
-  </p-table>
-</div>
-
+  <div class="ui-g-12">
+    <a pButton label="Novo Lançamento"></a>
+  </div>
 
   <router-outlet></router-outlet>
 </div>
