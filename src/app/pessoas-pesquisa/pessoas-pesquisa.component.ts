@@ -11,5 +11,56 @@ export class PessoasPesquisaComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  title = 'Lançamentos';
+  pessoas = [
+    {
+      nome: 'Manoel',
+      cidade: 'Uberlandia',
+      estado: 'MG',
+      status: true
+    },
+    {
+      nome: 'Sebastião',
+      cidade: 'Uberlandia',
+      estado: 'MG',
+      status: false
+    },
+    {
+      nome: 'Carla',
+      cidade: 'Uberlandia',
+      estado: 'MG',
+      status: true
+    },
+    {
+      nome: 'Luis',
+      cidade: 'Uberlandia',
+      estado: 'MG',
+      status: true
+    },
+    {
+      nome: 'Manoel',
+      cidade: 'Uberlandia',
+      estado: 'MG',
+      status: true
+    },
+    {
+      nome: 'Manoel',
+      cidade: 'Uberlandia',
+      estado: 'MG',
+      status: false
+    },
+    {
+      nome: 'Manoel',
+      cidade: 'Uberlandia',
+      estado: 'MG',
+      status: true
+    },
+    {
+      nome: 'Manoel',
+      cidade: 'Uberlandia',
+      estado: 'MG',
+      status: true
+    },
+  ];
 
 }

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LancamentosPesquisaComponent {
 
-  title = 'algamonei-ui';
+  title = 'Lançamentos';
   lancamentos = [
     {
       tipo: 'DESPESA',

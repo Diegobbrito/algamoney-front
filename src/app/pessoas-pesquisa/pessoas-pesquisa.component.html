@@ -1,1 +1,89 @@
-<p>pessoas-pesquisa works!</p>
+<div class="container">
+  <div class="p-grid ui-fluid">
+    <div class="p-col-12">
+      <h1>Pessoas</h1>
+    </div>
+    <div class="p-fluid">
+      <label>Nome</label>
+      <input type="text" pInputText />
+    </div>
+
+    <div class="p-col-12">
+      <button pButton type="submit" label="Pesquisar"></button>
+    </div>
+  </div>
+  <div class="">
+    <p-table
+      [value]="pessoas"
+      [paginator]="true"
+      [rows]="5"
+      [responsive]="true"
+    >
+      <ng-template pTemplate="header">
+        <div class="p-col-1">
+          <tr>
+            <th>Name</th>
+          </tr>
+          <tr>
+            <th>
+              <p-columnFilter type="text" field="nome"></p-columnFilter>
+            </th>
+          </tr>
+        </div>
+
+        <tr>
+          <th>Nome</th>
+          <th>Cidade</th>
+          <th>Estado</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-pessoas>
+        <tr>
+          <td>{{ pessoas.nome }}</td>
+          <td>{{ pessoas.cidade }}</td>
+          <td>{{ pessoas.estado }}</td>
+          <td>
+            <a
+              href=""
+              pTooltip="Desativar"
+              tooltipPosition="top"
+              *ngIf="pessoas.status"
+            >
+              Ativo
+            </a>
+            <a
+              href=""
+              pTooltip="Ativar"
+              tooltipPosition="top"
+              *ngIf="!pessoas.status"
+            >
+              Desativo
+            </a>
+          </td>
+          <td>
+            <a
+              pButton
+              icon="pi pi-pencil"
+              pTooltip="Editar"
+              tooltipPosition="top"
+            ></a>
+            <button
+              pButton
+              icon="pi pi-trash"
+              pTooltip="Excluir"
+              tooltipPosition="top"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <div class="p-col-12">
+    <a pButton label="Nova Pessoa"></a>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>

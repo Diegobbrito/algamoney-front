@@ -11,6 +11,7 @@ import {TooltipModule} from 'primeng/tooltip';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.co
     InputTextModule,
     ButtonModule,
     TableModule,
-    TooltipModule
+    TooltipModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
