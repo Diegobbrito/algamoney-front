@@ -12,7 +12,7 @@ export class LancamentosPesquisaComponent {
     {
       tipo: 'DESPESA',
       descricao: 'Compra de Pão',
-      dataVencimento: '30/06/2020',
+      dataVencimento: new Date(2021, 1, 5),
       dataPagamento: null,
       valor: 4.55,
       pessoa: 'Padaria do José',
@@ -20,7 +20,7 @@ export class LancamentosPesquisaComponent {
     {
       tipo: 'RECEITA',
       descricao: 'Compra de Farinha',
-      dataVencimento: '30/06/2020',
+      dataVencimento: new Date(2021, 1, 5),
       dataPagamento: null,
       valor: 4.55,
       pessoa: 'Padaria do José',
@@ -28,7 +28,7 @@ export class LancamentosPesquisaComponent {
     {
       tipo: 'RECEITA',
       descricao: 'Compra de Leite',
-      dataVencimento: '30/06/2020',
+      dataVencimento: new Date(2021, 1, 5),
       dataPagamento: null,
       valor: 8.99,
       pessoa: 'Padaria do José',
@@ -36,7 +36,7 @@ export class LancamentosPesquisaComponent {
     {
       tipo: 'DESPESA',
       descricao: 'Compra de Pão',
-      dataVencimento: '30/06/2020',
+      dataVencimento: new Date(2021, 1, 5),
       dataPagamento: null,
       valor: 4.55,
       pessoa: 'Padaria do José',
@@ -44,7 +44,7 @@ export class LancamentosPesquisaComponent {
     {
       tipo: 'DESPESA',
       descricao: 'Compra de Pão',
-      dataVencimento: '30/06/2020',
+      dataVencimento: new Date(2021, 1, 5),
       dataPagamento: null,
       valor: 4.55,
       pessoa: 'Padaria do José',
@@ -52,7 +52,7 @@ export class LancamentosPesquisaComponent {
     {
       tipo: 'DESPESA',
       descricao: 'Compra de Pão',
-      dataVencimento: '30/06/2020',
+      dataVencimento: new Date(2021, 1, 5),
       dataPagamento: null,
       valor: 4.55,
       pessoa: 'Padaria do José',
@@ -60,7 +60,7 @@ export class LancamentosPesquisaComponent {
     {
       tipo: 'DESPESA',
       descricao: 'Compra de Pão',
-      dataVencimento: '30/06/2020',
+      dataVencimento: new Date(2021, 1, 5),
       dataPagamento: null,
       valor: 4.55,
       pessoa: 'Padaria do José',
@@ -68,7 +68,7 @@ export class LancamentosPesquisaComponent {
     {
       tipo: 'DESPESA',
       descricao: 'Compra de Pão',
-      dataVencimento: '30/06/2020',
+      dataVencimento: new Date(2021, 1, 5),
       dataPagamento: null,
       valor: 4.55,
       pessoa: 'Padaria do José',
@@ -76,7 +76,7 @@ export class LancamentosPesquisaComponent {
     {
       tipo: 'DESPESA',
       descricao: 'Compra de Pão',
-      dataVencimento: '30/06/2020',
+      dataVencimento: new Date(2021, 1, 5),
       dataPagamento: null,
       valor: 4.55,
       pessoa: 'Padaria do José',
@@ -84,7 +84,7 @@ export class LancamentosPesquisaComponent {
     {
       tipo: 'DESPESA',
       descricao: 'Compra de Pão',
-      dataVencimento: '30/06/2020',
+      dataVencimento: new Date(2021, 1, 5),
       dataPagamento: null,
       valor: 4.55,
       pessoa: 'Padaria do José',
