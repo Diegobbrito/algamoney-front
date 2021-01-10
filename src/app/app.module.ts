@@ -12,18 +12,22 @@ import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos
 import { NavbarComponent } from './navbar/navbar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
+import { InputTextareaModule } from "primeng/inputtextarea";
 @NgModule({
   declarations: [
     AppComponent,
     LancamentosPesquisaComponent,
     NavbarComponent,
-    PessoasPesquisaComponent
+    PessoasPesquisaComponent,
+    LancamentoCadastroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     TabMenuModule,
     InputTextModule,
+    InputTextareaModule,
     ButtonModule,
     TableModule,
     TooltipModule,
