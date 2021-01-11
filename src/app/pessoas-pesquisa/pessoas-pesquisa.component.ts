@@ -11,7 +11,7 @@ export class PessoasPesquisaComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  title = 'Lançamentos';
+  title = 'Pessoas';
   pessoas = [
     {
       nome: 'Manoel',
