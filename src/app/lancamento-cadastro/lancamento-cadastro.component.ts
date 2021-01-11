@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LancamentoCadastroComponent implements OnInit {
 
-  valor: number;
+  valor: number = 0;
 
   constructor() { }
 

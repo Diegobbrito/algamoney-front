@@ -1,0 +1,71 @@
+<div class="container">
+  <form action="">
+    <div class="p-fluid">
+      <div class="p-col-12">
+        <h1>Nova Pessoa</h1>
+      </div>
+    </div>
+
+    <div class="p-fluid p-grid">
+      <div class="p-field p-col-12">
+        <label for="vencimento">Nome</label>
+        <input type="text" pInputText />
+      </div>
+    </div>
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="p-field p-col-12 p-md-10">
+        <label for="vencimento">Logradouro</label>
+        <input type="text" pInputText />
+      </div>
+      <div class="p-field p-col-12 p-md-2">
+        <label for="fieldId">Número</label>
+        <input type="text" pInputText />
+      </div>
+    </div>
+
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="p-field p-col-12 p-md-4">
+        <label for="fieldId">Complemento</label>
+        <input type="text" pInputText />
+      </div>
+
+      <div class="p-field p-col-12 p-md-4">
+        <label for="fieldId">Bairro</label>
+        <input type="text" pInputText />
+      </div>
+
+      <div class="p-field p-col-12 p-md-4">
+        <label for="fieldId">CEP</label>
+
+        <p-inputMask mask="99.999-999"></p-inputMask>
+      </div>
+    </div>
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="p-field p-col-12 p-md-6">
+        <label for="fieldId">Cidade</label>
+        <input type="text" pInputText />
+      </div>
+      <div class="p-field p-col-12 p-md-6">
+        <label for="fieldId">Estado</label>
+        <input type="text" pInputText />
+      </div>
+    </div>
+
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="p-col-2">
+        <button pButton type="submit" label="Salvar"></button>
+      </div>
+      <div class="p-col-2">
+        <button
+          pButton
+          type="submit"
+          label="Novo"
+          class="p-button-info"
+        ></button>
+      </div>
+      <div class="p-col">
+        <a href="javascript:;">Voltar para a pesquisa</a>
+      </div>
+    </div>
+  </form>
+</div>
