@@ -6,7 +6,6 @@
       </div>
       <div class="p-fluid p-grid">
         <div class="p-col-2">
-
           <p-selectButton [options]="tipos" #tipo></p-selectButton>
         </div>
       </div>
@@ -42,17 +41,26 @@
       </div>
       <div class="p-field p-col-12 p-md-3">
         <label for="fieldId">Valor</label>
-        <input type="text" pInputText placeholder="0,00" />
+        <p-inputNumber [(ngModel)]="valor" mode="currency" currency="BRL" locale="pt-BR"></p-inputNumber>
       </div>
 
       <div class="p-field p-col-12 p-md-6">
         <label for="fieldId">Categoria</label>
-        <p-dropdown [options]="categorias" #categoria placeholder="Selecione"></p-dropdown>
+        <p-dropdown
+          [options]="categorias"
+          #categoria
+          placeholder="Selecione"
+        ></p-dropdown>
       </div>
 
       <div class="p-field p-col-12 p-md-6">
         <label for="fieldId">Pessoa</label>
-        <p-dropdown [options]="pessoas" placeholder="Selecione" #pessoa [filter]="true"></p-dropdown>
+        <p-dropdown
+          [options]="pessoas"
+          placeholder="Selecione"
+          #pessoa
+          [filter]="true"
+        ></p-dropdown>
       </div>
 
       <div class="p-field p-col-12">

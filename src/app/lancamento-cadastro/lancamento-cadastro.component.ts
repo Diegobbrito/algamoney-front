@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LancamentoCadastroComponent implements OnInit {
 
+  valor: number;
+
   constructor() { }
 
   ngOnInit(): void {
