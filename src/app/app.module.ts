@@ -14,6 +14,7 @@ import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.co
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { InputTextareaModule } from "primeng/inputtextarea";
+import {CalendarModule} from 'primeng/calendar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { InputTextareaModule } from "primeng/inputtextarea";
     ButtonModule,
     TableModule,
     TooltipModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
