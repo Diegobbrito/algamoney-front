@@ -16,6 +16,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputMaskModule } from 'primeng/inputmask';
 import { AppRoutingModule } from '../app-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AppRoutingModule } from '../app-routing.module';
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
+    SharedModule
 
   ],
   exports: [LancamentosPesquisaComponent, LancamentosCadastroComponent],

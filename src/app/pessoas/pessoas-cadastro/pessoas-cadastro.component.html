@@ -18,18 +18,18 @@
           required
           minlength="5"
         />
-        <!-- <app-message
+        <app-message
           [control]="nome"
           error="required"
           text="Informe o nome"
         ></app-message>
         <app-message
-        [control]="nome"
-        error="minlength"
-        text="Mínimo de {{
-          nome.errors?.minlength?.requiredLength
-        }} caracteres"
-      ></app-message> -->
+          [control]="nome"
+          error="minlength"
+          text="Mínimo de {{
+            nome.errors?.minlength?.requiredLength
+          }} caracteres"
+        ></app-message>
       </div>
     </div>
     <div class="p-fluid p-formgrid p-grid">
@@ -43,11 +43,11 @@
           #logradouro="ngModel"
           required
         />
-        <!-- <app-message
+        <app-message
           [control]="logradouro"
           error="required"
           text="Informe o logradouro"
-         ></app-message> -->
+        ></app-message>
       </div>
       <div class="p-field p-col-12 p-md-2">
         <label for="fieldId">Número</label>
@@ -59,11 +59,11 @@
           #numero="ngModel"
           required
         />
-        <!-- <app-message
+        <app-message
           [control]="numero"
           error="required"
           text="Informe o número"
-        ></app-message> -->
+        ></app-message>
       </div>
     </div>
 
@@ -83,29 +83,28 @@
           #bairro="ngModel"
           required
         />
-        <!-- <app-message
+        <app-message
           [control]="bairro"
           error="required"
           text="Informe o bairro"
-        ></app-message> -->
+        ></app-message>
       </div>
 
       <div class="p-field p-col-12 p-md-4">
         <label for="fieldId">CEP</label>
 
         <p-inputMask
-          mask="99.999-999"
-          name="cep"
           ngModel
+          name="cep"
           #cep="ngModel"
+          mask="99.999-999"
           required
-        >
-        </p-inputMask>
-        <!-- <app-message
+        ></p-inputMask>
+        <app-message
           [control]="cep"
           error="required"
           text="Informe o CEP"
-        ></app-message> -->
+        ></app-message>
       </div>
     </div>
     <div class="p-fluid p-formgrid p-grid">
@@ -119,11 +118,11 @@
           #cidade="ngModel"
           required
         />
-        <!-- <app-message
+        <app-message
           [control]="cidade"
           error="required"
           text="Informe a cidade"
-        ></app-message> -->
+        ></app-message>
       </div>
       <div class="p-field p-col-12 p-md-6">
         <label for="fieldId">Estado</label>
@@ -138,11 +137,11 @@
           #estado="ngModel"
           required
         />
-        <!-- <app-message
+        <app-message
           [control]="estado"
           error="required"
           text="Informe o estado"
-        ></app-message> -->
+        ></app-message>
       </div>
     </div>
 
