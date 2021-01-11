@@ -47,12 +47,12 @@
 
       <div class="p-field p-col-12 p-md-6">
         <label for="fieldId">Categoria</label>
-        <input type="text" pInputText />
+        <p-dropdown [options]="categorias" #categoria placeholder="Selecione"></p-dropdown>
       </div>
 
       <div class="p-field p-col-12 p-md-6">
         <label for="fieldId">Pessoa</label>
-        <input type="text" pInputText />
+        <p-dropdown [options]="pessoas" placeholder="Selecione" #pessoa [filter]="true"></p-dropdown>
       </div>
 
       <div class="p-field p-col-12">

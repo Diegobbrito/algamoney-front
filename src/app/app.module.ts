@@ -16,6 +16,7 @@ import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-ca
 import { InputTextareaModule } from "primeng/inputtextarea";
 import {CalendarModule} from 'primeng/calendar';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import {DropdownModule} from 'primeng/dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import {SelectButtonModule} from 'primeng/selectbutton';
     TooltipModule,
     BrowserAnimationsModule,
     CalendarModule,
-    SelectButtonModule
+    SelectButtonModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
