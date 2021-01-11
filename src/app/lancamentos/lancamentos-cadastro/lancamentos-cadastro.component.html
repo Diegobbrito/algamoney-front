@@ -23,11 +23,11 @@
           #descricao="ngModel"
           required
         ></p-calendar>
-        <app-message
+        <!-- <app-message
         [control]="descricao"
         error="required"
         text="Informe uma data de vencimento"
-      ></app-message>
+      ></app-message> -->
       </div>
       <div class="p-field p-col-6 p-md-3">
         <label for="recebimento">{{
@@ -53,18 +53,18 @@
           required
           minlength="5"
         />
-        <app-message
+        <!-- <app-message
           [control]="descricao"
           error="required"
           text="Informe uma descrição"
-        ></app-message>
-        <app-message
+        ></app-message> -->
+        <!-- <app-message
           [control]="descricao"
           error="minlength"
           text="Mínimo de {{
             descricao.errors?.minlength?.requiredLength
           }} caracteres"
-        ></app-message>
+        ></app-message>-->
       </div>
       <div class="p-field p-col-12 p-md-3">
         <label for="fieldId">Valor</label>
