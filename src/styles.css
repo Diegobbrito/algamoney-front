@@ -43,3 +43,11 @@ label {
   text-align: center;
 }
 
+.error{
+  color: white;
+  text-transform: uppercase;
+  background-color: red;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px;
+}
