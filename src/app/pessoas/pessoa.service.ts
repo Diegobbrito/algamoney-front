@@ -54,5 +54,11 @@ export class PessoaService {
     .then(response => response.content)
   }
 
+  excluir(id: number): Promise<void> {
+    return this.http.delete(`${this.pessoaUrl}/${id}`)
+      .toPromise()
+      .then(() => null);
+  }
+
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
 import { PessoaFiltro, PessoaService } from '../pessoa.service';
 
@@ -11,12 +11,14 @@ export class PessoasPesquisaComponent implements OnInit {
 
   constructor(private pessoaService: PessoaService) { }
 
-  ngOnInit(): void {
-  }
   title = 'Pessoas';
   pessoas = [];
   totalRegistros = 0;
   filtro = new PessoaFiltro();
+  @ViewChild('tabela') grid;
+
+  ngOnInit(): void {
+  }
 
   pesquisar(pagina = 0) {
     this.filtro.pagina = pagina;
@@ -29,6 +31,13 @@ export class PessoasPesquisaComponent implements OnInit {
   aoMudarPagina(event: LazyLoadEvent){
     const pagina = event.first / event.rows;
     this.pesquisar(pagina);
+  }
+
+  excluir(lancamento: any){
+    this.pessoaService.excluir(lancamento.id)
+    .then(()=> {
+      this.grid.first = 0;
+    })
   }
 
 }
