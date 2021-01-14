@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { LazyLoadEvent } from 'primeng/api';
+import { ToastyService } from 'ng2-toasty';
+import { ConfirmationService, LazyLoadEvent } from 'primeng/api';
 import { LancamentoFiltro, LancamentoService } from '../lancamento.service';
 
 @Component({
@@ -15,10 +16,13 @@ export class LancamentosPesquisaComponent implements OnInit {
   lancamentos = [];
   @ViewChild('tabela') grid;
 
-  constructor(private lancamentoService: LancamentoService) {}
+  constructor(
+    private lancamentoService: LancamentoService,
+    private toasty: ToastyService,
+    private confirmationService: ConfirmationService
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   pesquisar(pagina = 0) {
     this.filtro.pagina = pagina;
@@ -28,16 +32,29 @@ export class LancamentosPesquisaComponent implements OnInit {
     });
   }
 
-  aoMudarPagina(event: LazyLoadEvent){
+  aoMudarPagina(event: LazyLoadEvent) {
     const pagina = event.first / event.rows;
     this.pesquisar(pagina);
   }
 
-  excluir(lancamento: any){
-    this.lancamentoService.excluir(lancamento.id)
-    .then(()=> {
-      this.grid.first = 0;
-    })
+  confirmarExclusao(lancamento: any) {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(lancamento);
+      },
+    });
   }
 
+  excluir(lancamento: any) {
+    this.lancamentoService.excluir(lancamento.id).then(() => {
+      if (this.grid.first === 0) {
+        this.pesquisar();
+      } else {
+        this.grid.first = 0;
+      }
+
+      this.toasty.success('Lançamento excluído com sucesso!');
+    });
+  }
 }
