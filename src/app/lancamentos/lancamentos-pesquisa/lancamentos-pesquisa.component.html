@@ -11,12 +11,12 @@
         </div>
         <div class="p-col-2">
           <label style="display: block">Vencimento</label>
-          <input type="text" pInputText />
+          <p-calendar dateFormat="dd/mm/yy" name="vencimentoInicio" [(ngModel)]="dataVencimentoInicio" ></p-calendar>
         </div>
 
         <div class="p-col-2">
           <label>até</label>
-          <input type="text" pInputText />
+          <p-calendar dateFormat="dd/mm/yy" name="vencimentoFim" [(ngModel)]="dataVencimentoFim"></p-calendar>
         </div>
       </div>
     </form>
@@ -32,6 +32,7 @@
       [paginator]="true"
       [rows]="5"
       [responsive]="true"
+      emptyMessage="Nenhum lançamento encontrado"
     >
       <ng-template pTemplate="header">
         <tr>
