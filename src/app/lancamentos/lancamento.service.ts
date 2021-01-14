@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { URLSearchParams } from 'url';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import * as moment from 'moment';
 
-export class LancamentoFiltro{
+export class LancamentoFiltro {
   descricao: string;
   dataVencimentoInicio: Date;
   dataVencimentoFim: Date;
@@ -14,44 +13,50 @@ export class LancamentoFiltro{
   providedIn: 'root',
 })
 export class LancamentoService {
-
   lancamentosUrl = 'http://localhost:8080/lancamentos';
 
   constructor(private http: HttpClient) {}
 
   pesquisar(filtro: LancamentoFiltro): Promise<any> {
-    const params = new URLSearchParams();
+    let params = new HttpParams({
+      fromObject: {
+        page: filtro.pagina.toString(),
+        size: filtro.itensPorPagina.toString(),
+      },
+    });
+
     const headers = new HttpHeaders();
 
     headers.append('Authorization', 'Basic ');
 
-    params.set('page', filtro.pagina.toString());
-    params.set('size', filtro.itensPorPagina.toString());
-
-
-    if(filtro.descricao){
-      params.set('descricao', filtro.descricao);
+    if (filtro.descricao) {
+      params = params.append('descricao', filtro.descricao);
     }
 
-    if(filtro.dataVencimentoInicio){
-      params.set('dataVencimentoDe', moment(filtro.dataVencimentoInicio).format('YYYY-MM-DD'));
+    if (filtro.dataVencimentoInicio) {
+      params = params.append(
+        'dataVencimentoDe',
+        moment(filtro.dataVencimentoInicio).format('YYYY-MM-DD')
+      );
     }
 
-    if(filtro.dataVencimentoFim){
-      params.set('dataVencimentoAte', moment(filtro.dataVencimentoFim).format('YYYY-MM-DD'));
+    if (filtro.dataVencimentoFim) {
+      params = params.append(
+        'dataVencimentoAte',
+        moment(filtro.dataVencimentoFim).format('YYYY-MM-DD')
+      );
     }
 
     return this.http
-      .get(`${this.lancamentosUrl}?resumo`, { headers, search: params })
+      .get<any>(`${this.lancamentosUrl}?resumo`, { headers, params })
       .toPromise()
-      .then(response => {
-        const responseJson = response.json();
-        const lancamentos = responseJson.content;
+      .then((response) => {
+        const lancamentos = response.content;
         const resultado = {
-          lancamentos: lancamentos,
-          total: responseJson.totalElements
-        }
+          lancamentos,
+          total: response.totalElements,
+        };
         return resultado;
-      } );
+      });
   }
 }
