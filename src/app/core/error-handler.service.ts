@@ -1,9 +1,22 @@
 import { Injectable } from '@angular/core';
+import { ToastyService } from 'ng2-toasty';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ErrorHandlerService {
+  constructor(private toasty: ToastyService) {}
 
-  constructor() { }
+  handle(errorResponse: any) {
+    let msg: string;
+
+    if (typeof errorResponse === 'string') {
+      msg = errorResponse;
+    } else {
+      msg = 'Erro ao processar serviço remoto. Tente novamente.';
+      console.log('Erro: ', errorResponse);
+    }
+
+    this.toasty.error(msg);
+  }
 }
