@@ -9,10 +9,10 @@ export class CategoriaService {
   categoriaUrl: string;
 
   constructor(private http: HttpClient ) {
-    this.categoriaUrl = `http://localhost:8080/catagorias`;
+    this.categoriaUrl = `http://localhost:8080/categorias`;
   }
 
-  getAll(): Promise<any> {
+  listarTodas(): Promise<any> {
     return this.http.get(this.categoriaUrl)
     .toPromise();
   }

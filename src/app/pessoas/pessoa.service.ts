@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LazyLoadEvent } from 'primeng/api';
+import { Pessoa } from '../core/model';
 
 export class PessoaFiltro{
   nome: string;
@@ -24,7 +24,7 @@ export class PessoaService {
     });
     const headers = new HttpHeaders();
 
-    headers.append('Authorization', 'Basic ');
+    headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
     if(filtro.nome){
       params = params.append('nome', filtro.nome);
@@ -47,11 +47,16 @@ export class PessoaService {
 
   listarTodas(): Promise<any>{
     const headers = new HttpHeaders();
-    headers.append('Authorization', 'Basic ');
+    headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
     return this.http.get<any>(this.pessoaUrl, {headers})
     .toPromise()
     .then(response => response.content)
+  }
+
+  adicionar(pessoa: Pessoa): Promise<Pessoa> {
+    return this.http.post<Pessoa>(this.pessoaUrl, pessoa)
+    .toPromise();
   }
 
   excluir(id: number): Promise<void> {

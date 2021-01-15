@@ -10,10 +10,10 @@
       <div class="p-field p-col-12">
         <label for="vencimento">Nome</label>
         <input
+          name="nome"
+          [(ngModel)]="pessoa.nome"
           type="text"
           pInputText
-          name="nome"
-          ngModel
           #nome="ngModel"
           required
           minlength="5"
@@ -36,10 +36,10 @@
       <div class="p-field p-col-12 p-md-10">
         <label for="vencimento">Logradouro</label>
         <input
+          name="logradouro"
+          [(ngModel)]="pessoa.endereco.logradouro"
           type="text"
           pInputText
-          name="logradouro"
-          ngModel
           #logradouro="ngModel"
           required
         />
@@ -52,10 +52,10 @@
       <div class="p-field p-col-12 p-md-2">
         <label for="fieldId">Número</label>
         <input
+          name="numero"
+          [(ngModel)]="pessoa.endereco.numero"
           type="text"
           pInputText
-          name="numero"
-          ngModel
           #numero="ngModel"
           required
         />
@@ -76,10 +76,10 @@
       <div class="p-field p-col-12 p-md-4">
         <label for="fieldId">Bairro</label>
         <input
+          name="bairro"
+          [(ngModel)]="pessoa.endereco.bairro"
           type="text"
           pInputText
-          name="bairro"
-          ngModel
           #bairro="ngModel"
           required
         />
@@ -94,8 +94,8 @@
         <label for="fieldId">CEP</label>
 
         <p-inputMask
-          ngModel
           name="cep"
+          [(ngModel)]="pessoa.endereco.cep"
           #cep="ngModel"
           mask="99.999-999"
           required
@@ -111,10 +111,10 @@
       <div class="p-field p-col-12 p-md-6">
         <label for="fieldId">Cidade</label>
         <input
+          name="cidade"
+          [(ngModel)]="pessoa.endereco.cidade"
           type="text"
           pInputText
-          name="cidade"
-          ngModel
           #cidade="ngModel"
           required
         />
@@ -127,13 +127,13 @@
       <div class="p-field p-col-12 p-md-6">
         <label for="fieldId">Estado</label>
         <input
+          name="estado"
+          [(ngModel)]="pessoa.endereco.estado"
           mask="aa"
           maxlength="2"
           characterPattern="[А-Z]"
           type="text"
           pInputText
-          name="estado"
-          ngModel
           #estado="ngModel"
           required
         />

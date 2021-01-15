@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import * as moment from 'moment';
+import { Lancamento } from '../core/model';
 
 export class LancamentoFiltro {
   descricao: string;
@@ -27,7 +28,7 @@ export class LancamentoService {
 
     const headers = new HttpHeaders();
 
-    headers.append('Authorization', 'Basic ');
+    headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
     if (filtro.descricao) {
       params = params.append('descricao', filtro.descricao);
@@ -60,8 +61,14 @@ export class LancamentoService {
       });
   }
 
+  adicionar(lancamento: Lancamento): Promise<Lancamento> {
+      return this.http.post<Lancamento>(this.lancamentosUrl, lancamento)
+      .toPromise();
+  }
+
   excluir(id: number): Promise<void> {
-    return this.http.delete(`${this.lancamentosUrl}/${id}`)
+    return this.http
+      .delete(`${this.lancamentosUrl}/${id}`)
       .toPromise()
       .then(() => null);
   }

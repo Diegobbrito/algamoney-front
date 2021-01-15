@@ -2,11 +2,16 @@
   <div class="p-col-12">
     <h1>Novo Lançamento</h1>
   </div>
-  <form>
+  <form #f="ngForm" (ngSubmit)="salvar(f)">
     <div class="ui-fluid">
       <div class="p-fluid p-grid">
         <div class="p-col-2">
-          <p-selectButton [options]="tipos" #tipo></p-selectButton>
+          <p-selectButton
+            name="tipo"
+            [options]="tipos"
+            [(ngModel)]="lancamento.tipo"
+            #tipo
+          ></p-selectButton>
         </div>
       </div>
     </div>
@@ -15,6 +20,7 @@
       <div class="p-field p-col-6 p-md-3">
         <label for="vencimento">Vencimento</label>
         <p-calendar
+          [(ngModel)]="lancamento.dataVencimento"
           dateFormat="dd/mm/yy"
           [readonlyInput]="true"
           showIcon="true"
@@ -34,9 +40,11 @@
           tipo.value === "RECEITA" ? "Recebimento" : "Pagamento"
         }}</label>
         <p-calendar
+          name="pagamento"
           dateFormat="dd/mm/yy"
           [readonlyInput]="true"
           showIcon="true"
+          [(ngModel)]="lancamento.dataPagamento"
         ></p-calendar>
       </div>
     </div>
@@ -45,10 +53,10 @@
       <div class="p-field p-col-12 p-md-9">
         <label for="fieldId">Descrição</label>
         <input
+          name="descricao"
+          [(ngModel)]="lancamento.descricao"
           type="text"
           pInputText
-          name="descricao"
-          ngModel
           #descricao="ngModel"
           required
           minlength="5"
@@ -70,6 +78,7 @@
         <label for="fieldId">Valor</label>
         <p-inputNumber
           name="valor"
+          [(ngModel)]="lancamento.valor"
           mode="currency"
           currency="BRL"
           locale="pt-BR"
@@ -79,6 +88,8 @@
       <div class="p-field p-col-12 p-md-6">
         <label for="fieldId">Categoria</label>
         <p-dropdown
+          name="categorias"
+          [(ngModel)]="lancamento.categoria.codigo"
           [options]="categorias"
           #categoria
           placeholder="Selecione"
@@ -89,6 +100,8 @@
       <div class="p-field p-col-12 p-md-6">
         <label for="fieldId">Pessoa</label>
         <p-dropdown
+          name="pessoa"
+          [(ngModel)]="lancamento.pessoa.codigo"
           [options]="pessoas"
           placeholder="Selecione"
           #pessoa
@@ -99,7 +112,13 @@
 
       <div class="p-field p-col-12">
         <label for="fieldId">Observação</label>
-        <textarea rows="3" type="text" pInputTextarea></textarea>
+        <textarea
+          name="observacao"
+          rows="3"
+          type="text"
+          [(ngModel)]="lancamento.observacao"
+          pInputTextarea
+        ></textarea>
       </div>
     </div>
     <div class="p-fluid p-formgrid p-grid">
