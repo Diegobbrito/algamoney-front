@@ -16,10 +16,9 @@
   <p-table
     [value]="pessoas"
     [paginator]="true"
-    [rows]="5"
-    [responsive]="true"
-    [paginator]="true"
     [rows]="filtro.itensPorPagina"
+    [responsive]="true"
+    emptyMessage="Nenhuma pessoa encontrada"
     [lazy]="true"
     [totalRecords]="totalRegistros"
     (onLazyLoad)="aoMudarPagina($event)"
@@ -59,22 +58,27 @@
         </td>
         <td>
           <div class="p-fluid p-grid">
-            <div class="p-col-3">
-              <a
-                pButton
-                icon="pi pi-pencil"
-                pTooltip="Editar"
-                tooltipPosition="top"
-              ></a>
-            </div>
-            <div class="p-col-3">
-              <button
-                pButton
-                icon="pi pi-trash"
-                pTooltip="Excluir"
-                tooltipPosition="top"
-              ></button>
-            </div>
+            <ng-template
+              let-lanc="rowData" pTemplate="body"
+            >
+              <div class="p-col-6">
+                <a
+                  pButton
+                  icon="pi pi-pencil"
+                  pTooltip="Editar"
+                  tooltipPosition="top"
+                ></a>
+              </div>
+              <div class="p-col-6">
+                <button
+                  pButton
+                  icon="pi pi-trash"
+                  pTooltip="Excluir"
+                  tooltipPosition="top"
+                  (click)="confirmarExclusao(lanc)"
+                ></button>
+              </div>
+            </ng-template>
           </div>
         </td>
       </tr>

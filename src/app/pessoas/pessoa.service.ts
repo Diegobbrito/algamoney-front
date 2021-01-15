@@ -60,5 +60,13 @@ export class PessoaService {
       .then(() => null);
   }
 
+  mudarStatus(id: number, ativo: boolean): Promise<void> {
+    const headers = new HttpHeaders()
+        .append('Content-Type', 'application/json');
+
+    return this.http.put(`${this.pessoaUrl}/${id}/ativo`, ativo, { headers })
+      .toPromise()
+      .then(() => null);
+  }
 
 }

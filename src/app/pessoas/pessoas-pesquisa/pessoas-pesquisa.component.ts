@@ -1,15 +1,21 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { LazyLoadEvent } from 'primeng/api';
+import { ToastyService } from 'ng2-toasty';
+import { ConfirmationService, LazyLoadEvent } from 'primeng/api';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { PessoaFiltro, PessoaService } from '../pessoa.service';
 
 @Component({
   selector: 'app-pessoas-pesquisa',
   templateUrl: './pessoas-pesquisa.component.html',
-  styleUrls: ['./pessoas-pesquisa.component.css']
+  styleUrls: ['./pessoas-pesquisa.component.css'],
 })
 export class PessoasPesquisaComponent implements OnInit {
-
-  constructor(private pessoaService: PessoaService) { }
+  constructor(
+    private pessoaService: PessoaService,
+    private toasty: ToastyService,
+    private confirmationService: ConfirmationService,
+    private errorHandler: ErrorHandlerService
+  ) {}
 
   title = 'Pessoas';
   pessoas = [];
@@ -17,8 +23,7 @@ export class PessoasPesquisaComponent implements OnInit {
   filtro = new PessoaFiltro();
   @ViewChild('tabela') grid;
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   pesquisar(pagina = 0) {
     this.filtro.pagina = pagina;
@@ -28,16 +33,32 @@ export class PessoasPesquisaComponent implements OnInit {
     });
   }
 
-  aoMudarPagina(event: LazyLoadEvent){
+  aoMudarPagina(event: LazyLoadEvent) {
     const pagina = event.first / event.rows;
     this.pesquisar(pagina);
   }
 
-  excluir(lancamento: any){
-    this.pessoaService.excluir(lancamento.id)
-    .then(()=> {
-      this.grid.first = 0;
-    })
+  confirmarExclusao(pessoa: any) {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(pessoa);
+      },
+    });
   }
 
+  excluir(pessoa: any) {
+    this.pessoaService
+      .excluir(pessoa.id)
+      .then(() => {
+        if (this.grid.first === 0) {
+          this.pesquisar();
+        } else {
+          this.grid.first = 0;
+        }
+
+        this.toasty.success('Pessoa excluída com sucesso!');
+      })
+      .catch((error) => this.errorHandler.handle(error));
+  }
 }
