@@ -11,7 +11,7 @@ const routes: Routes = [
     component: PessoasPesquisaComponent
   },
   {
-    path: 'pessoas/cadastro',
+    path: 'pessoas/nova',
     component: PessoasCadastroComponent
   },
   {
@@ -19,7 +19,7 @@ const routes: Routes = [
     component: LancamentosPesquisaComponent
   },
   {
-    path: 'lancamentos/cadastro',
+    path: 'lancamentos/novo',
     component: LancamentosCadastroComponent
   }
 ];
