@@ -28,7 +28,10 @@ export class LancamentoService {
 
     const headers = new HttpHeaders();
 
-    headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+    headers.append(
+      'Authorization',
+      'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+    );
 
     if (filtro.descricao) {
       params = params.append('descricao', filtro.descricao);
@@ -62,7 +65,8 @@ export class LancamentoService {
   }
 
   adicionar(lancamento: Lancamento): Promise<Lancamento> {
-      return this.http.post<Lancamento>(this.lancamentosUrl, lancamento)
+    return this.http
+      .post<Lancamento>(this.lancamentosUrl, lancamento)
       .toPromise();
   }
 
@@ -71,5 +75,44 @@ export class LancamentoService {
       .delete(`${this.lancamentosUrl}/${id}`)
       .toPromise()
       .then(() => null);
+  }
+
+  atualizar(lancamento: Lancamento): Promise<Lancamento>{
+
+    return this.http.put<Lancamento>(`${this.lancamentosUrl}/${lancamento.codigo}`, lancamento)
+    .toPromise()
+    .then(response => {
+      const editLancamento = response;
+
+      this.converterStringsParaDatas([editLancamento]);
+
+      return editLancamento;
+    });
+  }
+
+  buscarPorId(id: number): Promise<Lancamento>{
+    return this.http.get<Lancamento>(`${this.lancamentosUrl}/${id}`)
+    .toPromise()
+    .then(response => {
+      const lancamento = response;
+
+      this.converterStringsParaDatas([lancamento]);
+
+      return lancamento;
+    });
+  }
+
+  private converterStringsParaDatas(lancamentos: Lancamento[]){
+
+    for (const lancamento of lancamentos) {
+      lancamento.dataVencimento = moment(lancamento.dataVencimento,
+        'YYYY-MM-DD').toDate();
+
+      if (lancamento.dataPagamento) {
+        lancamento.dataPagamento = moment(lancamento.dataPagamento,
+          'YYYY-MM-DD').toDate();
+      }
+    }
+
   }
 }

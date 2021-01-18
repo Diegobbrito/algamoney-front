@@ -74,4 +74,20 @@ export class PessoaService {
       .then(() => null);
   }
 
+  create(pessoa: Pessoa): Promise<Pessoa> {
+    return this.http.post<Pessoa>(this.pessoaUrl, pessoa)
+      .toPromise();
+  }
+
+  update(pessoa: Pessoa): Promise<Pessoa> {
+    return this.http.put<Pessoa>(`${this.pessoaUrl}/${pessoa.codigo}`, pessoa)
+      .toPromise();
+  }
+
+  searchById(id: number): Promise<Pessoa> {
+    return this.http.get<Pessoa>(`${this.pessoaUrl}/${id}`)
+      .toPromise();
+  }
+
+
 }

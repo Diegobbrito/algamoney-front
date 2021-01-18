@@ -15,8 +15,16 @@ const routes: Routes = [
     component: PessoasCadastroComponent
   },
   {
+    path: 'pessoas/:id',
+    component: PessoasCadastroComponent
+  },
+  {
     path: 'lancamentos',
     component: LancamentosPesquisaComponent
+  },
+  {
+    path: 'lancamentos/:id',
+    component: LancamentosCadastroComponent
   },
   {
     path: 'lancamentos/novo',

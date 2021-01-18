@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ToastyService } from 'ng2-toasty';
 import { CategoriaService } from 'src/app/categorias/categoria.service';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
@@ -27,10 +28,14 @@ export class LancamentosCadastroComponent implements OnInit {
     private pessoasService: PessoaService,
     private lancamentoService: LancamentoService,
     private errorHandler: ErrorHandlerService,
-    private toasty: ToastyService
+    private toasty: ToastyService,
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
+
+
+    this.carregarPessoas();
     this.carregarCategorias();
   }
 
