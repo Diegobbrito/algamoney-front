@@ -1,6 +1,6 @@
 <div class="container">
   <div class="p-col-12">
-    <h1>{{ editanto ? 'Edição de' : 'Novo'}} Lançamento</h1>
+    <h1>{{ editando ? 'Edição de' : 'Novo'}} Lançamento</h1>
   </div>
   <form #f="ngForm" (ngSubmit)="salvar(f)">
     <div class="ui-fluid">
@@ -131,6 +131,7 @@
           type="submit"
           label="Novo"
           class="p-button-info"
+          (click)="novo(f)"
         ></button>
       </div>
       <div class="p-col">
