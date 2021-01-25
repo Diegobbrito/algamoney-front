@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PaginaNaoEncontadaComponent } from './core/pagina-nao-encontada.component';
 import { LancamentosCadastroComponent } from './lancamentos/lancamentos-cadastro/lancamentos-cadastro.component';
 import { LancamentosPesquisaComponent } from './lancamentos/lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { PessoasCadastroComponent } from './pessoas/pessoas-cadastro/pessoas-cadastro.component';
@@ -7,32 +8,42 @@ import { PessoasPesquisaComponent } from './pessoas/pessoas-pesquisa/pessoas-pes
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'lancamentos', pathMatch: 'full'
+    path: '',
+    redirectTo: 'lancamentos',
+    pathMatch: 'full',
   },
   {
     path: 'pessoas',
-    component: PessoasPesquisaComponent
+    component: PessoasPesquisaComponent,
   },
   {
     path: 'pessoas/nova',
-    component: PessoasCadastroComponent
+    component: PessoasCadastroComponent,
   },
   {
     path: 'pessoas/:id',
-    component: PessoasCadastroComponent
+    component: PessoasCadastroComponent,
   },
   {
     path: 'lancamentos',
-    component: LancamentosPesquisaComponent
+    component: LancamentosPesquisaComponent,
   },
   {
     path: 'lancamentos/:id',
-    component: LancamentosCadastroComponent
+    component: LancamentosCadastroComponent,
   },
   {
     path: 'lancamentos/novo',
-    component: LancamentosCadastroComponent
-  }
+    component: LancamentosCadastroComponent,
+  },
+  {
+    path: 'pagina-nao-encontrada',
+    component: PaginaNaoEncontadaComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'pagina-nao-encontrada',
+  },
 ];
 
 @NgModule({

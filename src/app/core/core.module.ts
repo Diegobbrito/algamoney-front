@@ -11,9 +11,10 @@ import { LOCALE_ID } from '@angular/core';
 import { LancamentoService } from '../lancamentos/lancamento.service';
 import { PessoaService } from '../pessoas/pessoa.service';
 import { RouterModule } from '@angular/router';
+import { PaginaNaoEncontadaComponent } from './pagina-nao-encontada.component';
 
 @NgModule({
-  declarations: [NavbarComponent],
+  declarations: [NavbarComponent, PaginaNaoEncontadaComponent],
   imports: [CommonModule, ToastyModule.forRoot(), ConfirmDialogModule, RouterModule],
   exports: [NavbarComponent, ToastyModule, ConfirmDialogModule],
   providers: [
