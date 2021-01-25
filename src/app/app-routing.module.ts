@@ -7,6 +7,9 @@ import { PessoasPesquisaComponent } from './pessoas/pessoas-pesquisa/pessoas-pes
 
 const routes: Routes = [
   {
+    path: '', redirectTo: 'lancamentos', pathMatch: 'full'
+  },
+  {
     path: 'pessoas',
     component: PessoasPesquisaComponent
   },
