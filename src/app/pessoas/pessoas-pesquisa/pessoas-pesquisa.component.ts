@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ToastyService } from 'ng2-toasty';
 import { ConfirmationService, LazyLoadEvent } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
@@ -14,16 +15,17 @@ export class PessoasPesquisaComponent implements OnInit {
     private pessoaService: PessoaService,
     private toasty: ToastyService,
     private confirmationService: ConfirmationService,
-    private errorHandler: ErrorHandlerService
+    private errorHandler: ErrorHandlerService,
+    private title: Title
   ) {}
 
-  title = 'Pessoas';
+  ngOnInit() {
+    this.title.setTitle('Pesquisa de lançamentos');
+  }
   pessoas = [];
   totalRegistros = 0;
   filtro = new PessoaFiltro();
   @ViewChild('tabela') grid;
-
-  ngOnInit(): void {}
 
   pesquisar(pagina = 0) {
     this.filtro.pagina = pagina;

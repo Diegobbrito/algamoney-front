@@ -12,10 +12,16 @@ import { LancamentoService } from '../lancamentos/lancamento.service';
 import { PessoaService } from '../pessoas/pessoa.service';
 import { RouterModule } from '@angular/router';
 import { PaginaNaoEncontadaComponent } from './pagina-nao-encontada.component';
+import { Title } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [NavbarComponent, PaginaNaoEncontadaComponent],
-  imports: [CommonModule, ToastyModule.forRoot(), ConfirmDialogModule, RouterModule],
+  imports: [
+    CommonModule,
+    ToastyModule.forRoot(),
+    ConfirmDialogModule,
+    RouterModule,
+  ],
   exports: [NavbarComponent, ToastyModule, ConfirmDialogModule],
   providers: [
     ErrorHandlerService,
@@ -26,6 +32,7 @@ import { PaginaNaoEncontadaComponent } from './pagina-nao-encontada.component';
       useValue: 'pt-BR',
     },
     ConfirmationService,
+    Title,
   ],
 })
 export class CoreModule {}
